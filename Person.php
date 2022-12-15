@@ -19,7 +19,7 @@ class Person{
 	//public function __set(...)
 	public function __set($property, $value){
 		if((property_exists($this, $property))){
-			echo "You succesfuly updated " . $property . " to" . $value . "<br>";
+			echo "You succesfuly updated " . $property . " to " . $value . "<br>";
 			$this -> $property = $value;
 		}
 		else{
@@ -28,15 +28,17 @@ class Person{
 	}
 	//public function __get(...)
 	public function __get($property){
-		echo "You tried to update or access to:" .$property ."<br>";
+		echo "You tried to update or access to: " .$property ."<br>";
 
 	}
 
-	public function __construct($age, $eye_color){
+	public function __construct($age, $eye_color, $name){
 		$this->age = $age;
 		$this->eye_color = $eye_color;
+		$this->name= $name;
 		echo "This is the age: " . $this->age . "<br>";
-		echo "This is the eye color: " . $this->eye_color . "<br>"; 
+		echo "This is the eye color: " . $this->eye_color . "<br>";
+		echo "Name: " . $this->name . "<br>";  
 		self::$population++;
 		echo "This is the current number of instance: " . self::$population ."<br>";
 	}
@@ -54,13 +56,20 @@ class Person{
 	function say_age(){
 		echo "This is the age: " . $this->age. "<br>";
 	}
+
+	
+
 }
 
-$dude = new Person(22,"Brown");
-$girl = new Person(44,"Blue");
-$bob = new Person(55,"Green");
+$dude = new Person(22,"Brown","Paco");
+$girl = new Person(44,"Blue","Maria");
+$bob = new Person(55,"Green","Bob");
+$Prueba = new Person(66, "Black","Prueba");
 
 $dude->word;
+$dude->two=2;
+$dude->three=5;
+$dude->word="Hola";
 echo "<br>";
 echo "DUDE: <br>";
 $dude->haha=55;
